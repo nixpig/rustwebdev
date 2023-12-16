@@ -1,0 +1,20 @@
+[package]
+name = "rust_q_and_a"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1.2", features = ["full"]}
+warp = "0.3"
+serde = { version = "1.0", features = ["derive"]}
+serde_json = "1.0"
+log = "0.4"
+# env_logger = "0.9"
+# log4rs = "1.0"
+uuid = { version = "0.8", features = ["v4"]}
+tracing = { version = "0.1", features = ["log"]}
+tracing-subscriber = { version = "0.3", features = ["env-filter"]}
+sqlx = { version = "0.7.1", features = ["runtime-tokio-rustls", "migrate", "postgres"]}
+reqwest = { version = "0.11", features = ["json"] }

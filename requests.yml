@@ -1,0 +1,86 @@
+---
+- name: rust_q_and_a
+  host: localhost
+  port: 3030
+  requests:
+    - name: get_all_questions
+      resource: /questions
+
+    - name: get_page_of_questions
+      resource: /questions
+      params:
+        start: 1
+        end: 2
+
+    - name: get_question_by_id
+      resource: /questions/2
+
+    - name: update_question
+      resource: /questions/2
+      method: put
+      body:
+        id: 2
+        title: Updated title
+        content: Updated content for question number 2
+        tags: [general, another_tag]
+
+    - name: bad_question
+      resource: /questions
+      method: post
+      body:
+        title: Title for a bad question
+        content: This is a shitty question with cunty text.
+        tags: [bad]
+
+    - name: add_question
+      resource: /questions
+      method: post
+      requests:
+        - name: 1
+          body:
+            title: First question
+            content: Content for the first question
+            tags: [general, faq]
+        - name: 2
+          body:
+            title: Second question
+            content: Content for the second question
+            tags: [faq, help]
+        - name: 3
+          body:
+            title: Third question
+            content: Content for the third question
+            tags: [help, general]
+
+    - name: delete_question
+      resource: /questions/2
+      method: delete
+
+    - name: add_answer
+      resource: /answers
+      method: post
+      body:
+        content: "Answer to a question"
+        question_id: 6
+
+    - name: get_answers
+      resource: /answers
+
+    - name: get_answer_by_id
+      resource: /answers/1
+
+    - name: update_answer
+      resource: /answer/1
+      method: put
+      body:
+        id: 1
+        content: "Updated answer to question"
+        question_id: 6
+
+    - name: delete_answer
+      resource: /answer/1
+      method: delete
+
+    - name: get_answers_for_question
+      resource: /questions/6/answers
+      method: get

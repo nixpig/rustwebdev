@@ -1,0 +1,14 @@
+{
+  "1": {
+    "id": 1,
+    "title": "First question",
+    "content": "Content of the first question",
+    "tags": ["faq"]
+  },
+  "2": {
+    "id": 2,
+    "title": "Second question",
+    "content": "Content of the second question",
+    "tags": ["notes", "general"]
+  }
+}
